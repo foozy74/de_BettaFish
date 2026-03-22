@@ -85,6 +85,9 @@ pytest>=7.4.0
 black>=23.0.0
 flake8>=6.0.0
 
+# ===== JWT / Auth =====
+PyJWT[crypto]>=2.8.0         # Clerk JWT-Validierung (RS256 via cryptography)
+
 # ===== Web服务器 =====
 fastapi==0.110.2
 uvicorn==0.29.0

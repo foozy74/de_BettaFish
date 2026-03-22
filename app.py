@@ -76,6 +76,14 @@ if REPORT_ENGINE_AVAILABLE:
 else:
     logger.info("ReportEngine不可用，跳过接口注册")
 
+# Tenant Self-Service Blueprint (Phase 3b)
+try:
+    from tenant.api import tenant_bp
+    app.register_blueprint(tenant_bp, url_prefix='/api/tenant')
+    logger.info("Tenant Self-Service API registriert")
+except Exception as _e:
+    logger.warning(f"Tenant Self-Service API nicht verfügbar: {_e}")
+
 # 创建日志目录
 LOG_DIR = Path('logs')
 LOG_DIR.mkdir(exist_ok=True)
